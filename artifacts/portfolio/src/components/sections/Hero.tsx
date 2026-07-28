@@ -1,9 +1,11 @@
-import { motion } from 'framer-motion';
-import { Download, FolderOpen, Linkedin, Mail, Phone } from 'lucide-react';
-import profilePhoto from '@assets/WhatsApp_Image_2026-06-25_at_7.01.45_PM_1785212685856.jpeg';
+import { motion } from "framer-motion";
+import { Download, FolderOpen, Linkedin, Mail, Phone } from "lucide-react";
+import profilePhoto from "@assets/WhatsApp_Image_2026-06-25_at_7.01.45_PM_1785212685856.jpeg";
 
 // CV is stored at /assets/cv.pdf — replace the file there to update the CV without touching code.
-const CV_PATH = `${import.meta.env.BASE_URL}assets/cv.pdf`.replace(/\/+/g, '/').replace(':/', '://');
+const CV_PATH = `${import.meta.env.BASE_URL}assets/cv.pdf`
+  .replace(/\/+/g, "/")
+  .replace(":/", "://");
 
 export default function Hero() {
   return (
@@ -18,12 +20,11 @@ export default function Hero() {
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
-
           {/* Profile Photo */}
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5, type: 'spring', stiffness: 100 }}
+            transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
             className="mb-7 relative"
           >
             {/* Outer glow rings */}
@@ -31,8 +32,13 @@ export default function Hero() {
             <div className="absolute inset-[-8px] border border-primary/30 rounded-full z-0 pointer-events-none" />
 
             {/* Photo circle */}
-            <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-white relative z-10 shadow-2xl shadow-primary/20"
-                 style={{ boxShadow: '0 0 0 4px #fff, 0 0 0 6px rgba(37,99,235,0.35), 0 8px 32px rgba(37,99,235,0.18)' }}>
+            <div
+              className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-white relative z-10 shadow-2xl shadow-primary/20"
+              style={{
+                boxShadow:
+                  "0 0 0 4px #fff, 0 0 0 6px rgba(37,99,235,0.35), 0 8px 32px rgba(37,99,235,0.18)",
+              }}
+            >
               <img
                 src={profilePhoto}
                 alt="Muh Na'afi Utama"
@@ -69,10 +75,11 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-2xl"
           >
-            Fresh Graduate in Management with a strong interest in Human Resources, recruitment,
-            HR administration, and employee development. Committed to supporting organizational
-            growth through effective HR administration, organized processes, and people-centered
-            workplace practices.
+            Fresh Graduate in Management with a strong interest in Human
+            Resources, recruitment, HR administration, and employee development.
+            Committed to supporting organizational growth through effective HR
+            administration, organized processes, and people-centered workplace
+            practices.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -127,7 +134,9 @@ export default function Hero() {
               <Mail size={18} />
             </a>
             <a
-              href="tel:+6288216718053"
+              href="https://wa.me/6288216718053?text=Hello%20Muh%20Na'afi,%20I%20found%20your%20portfolio%20website%20and%20would%20like%20to%20discuss%20a%20career%20opportunity."
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Phone"
               data-testid="link-phone"
               className="w-10 h-10 rounded-full bg-white shadow-sm border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 hover:shadow-md transition-all duration-200 hover:-translate-y-0.5"
@@ -135,7 +144,6 @@ export default function Hero() {
               <Phone size={18} />
             </a>
           </motion.div>
-
         </div>
       </div>
     </section>
