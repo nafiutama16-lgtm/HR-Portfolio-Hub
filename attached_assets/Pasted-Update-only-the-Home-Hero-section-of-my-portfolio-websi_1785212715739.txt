@@ -1,0 +1,130 @@
+Update only the Home (Hero) section of my portfolio website.
+
+Do NOT redesign the entire website.
+Keep the existing layout, typography, color palette, animations, and overall visual identity exactly as they are.
+
+I have uploaded:
+1. My professional profile photo.
+2. My updated CV in PDF format.
+
+Please make the following improvements:
+
+=================================================
+PROFILE PHOTO
+=================================================
+
+- Replace the current placeholder avatar ("MN") with my uploaded profile photo.
+- Use the cropped portrait.
+- Display it inside the existing circular frame.
+- Make the image sharp and properly centered.
+- Keep the blue glowing border.
+- Add a soft shadow for a premium look.
+- Ensure it looks perfect on desktop, tablet, and mobile.
+
+=================================================
+HERO CONTENT
+=================================================
+
+Display:
+
+Muh Na'afi Utama
+
+Human Resources Enthusiast | Fresh Graduate
+
+Replace the current description with:
+
+"Fresh Graduate in Management with a strong interest in Human Resources, recruitment, HR administration, and employee development. Committed to supporting organizational growth through effective HR administration, organized processes, and people-centered workplace practices."
+
+Keep the text centered.
+
+=================================================
+BUTTONS
+=================================================
+
+Replace the current buttons with:
+
+Primary Button
+📄 Download CV
+
+- Link directly to my uploaded PDF.
+- Store the file as:
+/public/assets/cv.pdf
+(or the project's assets folder if applicable)
+- Make it easy to replace the PDF in the future without changing the code.
+
+Secondary Button
+📂 View Projects
+
+- Smooth scroll to the Projects section.
+
+Remove the "Contact Me" button because there is already a Contact section in the navigation.
+
+=================================================
+SOCIAL LINKS
+=================================================
+
+Below the buttons, add elegant social icons for:
+
+- LinkedIn
+- Email
+- Phone
+
+Use small modern icons with subtle hover animations.
+
+=================================================
+SPACING
+=================================================
+
+Reduce the empty space above the profile photo.
+
+Move the entire Hero content slightly upward so that it occupies the screen more efficiently while keeping the design balanced.
+
+=================================================
+BACKGROUND
+=================================================
+
+Keep the clean white background.
+
+Add very subtle blue gradient blobs or soft blurred abstract shapes behind the hero content.
+
+The background should remain minimal and professional.
+
+=================================================
+ANIMATIONS
+=================================================
+
+Keep existing animations.
+
+Add:
+
+- Fade-in for the photo
+- Fade-up for text
+- Slight hover animation on buttons
+- Smooth scroll behavior
+
+Animations should be subtle and elegant.
+
+=================================================
+RESPONSIVENESS
+=================================================
+
+Ensure the Hero section looks perfect on:
+
+- Desktop
+- Tablet
+- Mobile
+
+Maintain proper spacing and image scaling.
+
+=================================================
+IMPORTANT
+=================================================
+
+Do not modify:
+- About section
+- Experience section
+- Projects section
+- Contact section
+- Navbar style
+
+Only improve the Hero section while preserving the current design language.
