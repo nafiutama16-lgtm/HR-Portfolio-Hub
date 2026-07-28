@@ -50,46 +50,46 @@ export default function Contact() {
             <h3 className="text-2xl font-semibold text-foreground mb-6">Contact Information</h3>
             
             <div className="space-y-8">
-              <a href="mailto:naafi.utama@email.com" className="flex items-center gap-5 text-muted-foreground hover:text-primary transition-colors group">
+              <a href="mailto:nafiutama16@gmail.com" className="flex items-center gap-5 text-muted-foreground hover:text-primary transition-colors group">
                 <div className="w-14 h-14 rounded-full bg-white shadow-sm flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Mail className="w-6 h-6 text-primary" />
                 </div>
-                <span className="text-lg font-medium">naafi.utama@email.com</span>
+                <span className="text-lg font-medium">nafiutama16@gmail.com</span>
               </a>
               
-              <div className="flex items-center gap-5 text-muted-foreground group">
-                <div className="w-14 h-14 rounded-full bg-white shadow-sm flex items-center justify-center">
+              <a href="tel:+6288216718053" className="flex items-center gap-5 text-muted-foreground hover:text-primary transition-colors group">
+                <div className="w-14 h-14 rounded-full bg-white shadow-sm flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Phone className="w-6 h-6 text-primary" />
                 </div>
-                <span className="text-lg font-medium">+62 812-XXXX-XXXX</span>
-              </div>
+                <span className="text-lg font-medium">+62 882-1671-8053</span>
+              </a>
               
-              <a href="https://linkedin.com/in/naafi-utama" target="_blank" rel="noreferrer" className="flex items-center gap-5 text-muted-foreground hover:text-primary transition-colors group">
+              <a href="https://www.linkedin.com/in/muh-naafi-utama/" target="_blank" rel="noreferrer" className="flex items-center gap-5 text-muted-foreground hover:text-primary transition-colors group">
                 <div className="w-14 h-14 rounded-full bg-white shadow-sm flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Linkedin className="w-6 h-6 text-primary" />
                 </div>
-                <span className="text-lg font-medium">linkedin.com/in/naafi-utama</span>
+                <span className="text-lg font-medium">linkedin.com/in/muh-naafi-utama</span>
               </a>
               
               <div className="flex items-center gap-5 text-muted-foreground group">
                 <div className="w-14 h-14 rounded-full bg-white shadow-sm flex items-center justify-center">
                   <MapPin className="w-6 h-6 text-primary" />
                 </div>
-                <span className="text-lg font-medium">Surakarta, Indonesia</span>
+                <span className="text-lg font-medium">Boyolali, Central Java, Indonesia</span>
               </div>
             </div>
 
             <div className="pt-6">
               <h4 className="text-sm font-bold text-foreground uppercase tracking-widest mb-6">Follow Me</h4>
               <div className="flex gap-4">
-                <a href="#" className="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-muted-foreground hover:text-white hover:bg-primary transition-all hover:-translate-y-1">
+                <a href="https://www.linkedin.com/in/muh-naafi-utama/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-muted-foreground hover:text-white hover:bg-primary transition-all hover:-translate-y-1">
                   <Linkedin className="w-5 h-5" />
                 </a>
-                <a href="#" className="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-muted-foreground hover:text-white hover:bg-primary transition-all hover:-translate-y-1">
-                  <Github className="w-5 h-5" />
+                <a href="mailto:nafiutama16@gmail.com" aria-label="Email" className="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-muted-foreground hover:text-white hover:bg-primary transition-all hover:-translate-y-1">
+                  <Mail className="w-5 h-5" />
                 </a>
-                <a href="#" className="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-muted-foreground hover:text-white hover:bg-primary transition-all hover:-translate-y-1">
-                  <Instagram className="w-5 h-5" />
+                <a href="tel:+6288216718053" aria-label="Phone" className="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-muted-foreground hover:text-white hover:bg-primary transition-all hover:-translate-y-1">
+                  <Phone className="w-5 h-5" />
                 </a>
               </div>
             </div>

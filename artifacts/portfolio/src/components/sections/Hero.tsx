@@ -109,7 +109,7 @@ export default function Hero() {
             className="flex items-center gap-4"
           >
             <a
-              href="https://linkedin.com/in/naafi-utama"
+              href="https://www.linkedin.com/in/muh-naafi-utama/"
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
@@ -119,7 +119,7 @@ export default function Hero() {
               <Linkedin size={18} />
             </a>
             <a
-              href="mailto:naafi.utama@email.com"
+              href="mailto:nafiutama16@gmail.com"
               aria-label="Email"
               data-testid="link-email"
               className="w-10 h-10 rounded-full bg-white shadow-sm border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 hover:shadow-md transition-all duration-200 hover:-translate-y-0.5"
@@ -127,7 +127,7 @@ export default function Hero() {
               <Mail size={18} />
             </a>
             <a
-              href="tel:+6281200000000"
+              href="tel:+6288216718053"
               aria-label="Phone"
               data-testid="link-phone"
               className="w-10 h-10 rounded-full bg-white shadow-sm border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 hover:shadow-md transition-all duration-200 hover:-translate-y-0.5"
