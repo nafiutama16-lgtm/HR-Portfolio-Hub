@@ -7,14 +7,14 @@ const STRENGTHS = [
 ];
 
 const SKILLS = [
-  { name: 'HR Administration', progress: 85 },
+  { name: 'HR Administration', progress: 80 },
   { name: 'Microsoft Office', progress: 90 },
-  { name: 'Google Workspace', progress: 88 },
+  { name: 'Google Workspace', progress: 85 },
   { name: 'Communication', progress: 92 },
   { name: 'Teamwork & Collaboration', progress: 90 },
-  { name: 'Problem Solving', progress: 82 },
-  { name: 'Time Management', progress: 87 },
-  { name: 'Leadership', progress: 80 },
+  { name: 'Problem Solving', progress: 88 },
+  { name: 'Time Management', progress: 85 },
+  { name: 'Leadership', progress: 85 },
 ];
 
 export default function About() {
