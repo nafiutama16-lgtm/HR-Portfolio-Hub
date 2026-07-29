@@ -1,14 +1,14 @@
 import { SectionReveal } from '@/components/ui/SectionReveal';
-import { Mail, Phone, MapPin, Send, Linkedin, Github, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Linkedin } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { toast } from 'sonner';
 
 const contactSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
+  name: z.string().min(1, 'Name is required'),
   email: z.string().email('Please enter a valid email address'),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
+  message: z.string().min(1, 'Message is required'),
 });
 
 type ContactFormValues = z.infer<typeof contactSchema>;
@@ -24,9 +24,20 @@ export default function Contact() {
   });
 
   const onSubmit = async (data: ContactFormValues) => {
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    console.log(data);
+    const res = await fetch(`${import.meta.env.BASE_URL}api/contact`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}));
+      toast.error('Failed to send message', {
+        description: (body as { error?: string }).error ?? 'Please try again later.',
+      });
+      return;
+    }
+
     toast.success('Message Sent Successfully!', {
       description: "Thank you for reaching out. I'll get back to you soon.",
     });
