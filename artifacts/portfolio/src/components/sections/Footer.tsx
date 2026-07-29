@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="bg-foreground py-16 text-center text-muted">
       <div className="container mx-auto px-6">
-        <h3 className="text-3xl font-bold text-white mb-8 tracking-tight">Na'afi Utama<span className="text-primary">.</span></h3>
+        <h3 className="text-3xl font-bold text-white mb-8 tracking-tight">Muh Na'afi Utama<span className="text-primary"></span></h3>
         
         <div className="flex flex-wrap justify-center gap-8 mb-10 text-sm font-semibold tracking-wide uppercase">
           <a href="#home" className="hover:text-white transition-colors">Hero</a>
