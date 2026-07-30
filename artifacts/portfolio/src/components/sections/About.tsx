@@ -1,7 +1,5 @@
 import { SectionReveal } from "@/components/ui/SectionReveal";
-
-import { SiCanvas, SiGoogle,} from "react-icons/si";
-
+import { SiCanvas, SiGoogle } from "react-icons/si";
 import { FaFileWord, FaFileExcel, FaFilePowerpoint } from "react-icons/fa";
 
 const SKILLS = [
@@ -50,31 +48,34 @@ export default function About() {
               </p>
             </div>
 
-            <div className="bg-secondary/20 border border-border/50 rounded-2xl p-5"></div>
-              <div className="flex items-center gap-4">
-                <img
-                  src="/ums-logo.png"
-                  alt="Universitas Muhammadiyah Surakarta"
-                  className="w-20 h-20 object-contain flex-shrink-0"
-                />
+            <div>
+              <h3 className="text-2xl font-semibold text-foreground mb-4">
+                EDUCATION
+              </h3>
 
-                <div>
-                  <h4 className="text-lg font-bold text-foreground">
-                    Universitas Muhammadiyah Surakarta
-                  </h4>
+              <div className="bg-secondary/20 border border-border/50 rounded-2xl p-5">
+                <div className="flex items-center gap-4">
+                  <img
+                    src="/ums-logo.png"
+                    alt="Universitas Muhammadiyah Surakarta"
+                    className="w-20 h-20 object-contain flex-shrink-0"
+                  />
 
-                  <p className="text-primary font-medium">
-                    Bachelor of Management
-                  </p>
-
-                  <p className="text-muted-foreground">
-                    GPA{" "}
-                    <span className="font-semibold text-foreground">
-                      3.67 / 4.00
-                    </span>
-                  </p>
-
-                  <p className="text-muted-foreground">2022 – 2026</p>
+                  <div>
+                    <h4 className="text-lg font-bold text-foreground">
+                      Universitas Muhammadiyah Surakarta
+                    </h4>
+                    <p className="text-primary font-medium">
+                      Bachelor of Management
+                    </p>
+                    <p className="text-muted-foreground">
+                      GPA{" "}
+                      <span className="font-semibold text-foreground">
+                        3.67 / 4.00
+                      </span>
+                    </p>
+                    <p className="text-muted-foreground">2022 – 2026</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -83,11 +84,11 @@ export default function About() {
               <h3 className="text-2xl font-semibold text-foreground mb-4">
                 Career Objective
               </h3>
-              <p className="text-foreground leading-relaxed text-lg border-l-4 border-primary pl-5 py-2 italic bg-secondary/50 rounded-r-xl font-medium">
-                "Seeking an entry-level HR position where I can apply my
+              <blockquote className="text-foreground leading-relaxed text-lg border-l-4 border-primary pl-5 py-2 italic bg-secondary/50 rounded-r-xl font-medium">
+                Seeking an entry-level HR position where I can apply my
                 organizational skills, attention to detail, and people-first
-                mindset to help build strong workplace cultures."
-              </p>
+                mindset to help build strong workplace cultures.
+              </blockquote>
             </div>
           </div>
 
@@ -98,12 +99,10 @@ export default function About() {
             </h3>
 
             <div className="space-y-8">
-              {/* Core Skills */}
               <div>
                 <h4 className="text-lg font-semibold text-primary mb-4">
                   Core Skills
                 </h4>
-
                 <div className="flex flex-wrap gap-3">
                   {SKILLS.map((skill) => (
                     <span
@@ -116,12 +115,10 @@ export default function About() {
                 </div>
               </div>
 
-              {/* Tools */}
               <div>
                 <h4 className="text-lg font-semibold text-primary mb-4">
                   Tools
                 </h4>
-
                 <div className="grid grid-cols-2 gap-4">
                   {TOOLS.map((tool) => {
                     const Icon = tool.icon;
@@ -132,7 +129,7 @@ export default function About() {
                         className="flex items-center gap-3 bg-white rounded-xl border border-border p-4 shadow-sm hover:shadow-md transition-all duration-300"
                       >
                         <Icon className={`text-2xl ${tool.color}`} />
-                        <span className="font-medium text-foreground">
+                        <span className="font-medium text-foreground text-sm">
                           {tool.name}
                         </span>
                       </div>
@@ -143,6 +140,7 @@ export default function About() {
             </div>
           </div>
         </div>
+      </div>
     </SectionReveal>
   );
 }
