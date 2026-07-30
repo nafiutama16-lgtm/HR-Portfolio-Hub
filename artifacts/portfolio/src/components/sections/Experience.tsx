@@ -6,7 +6,7 @@ const EXPERIENCES = [
   {
     role: 'Front Office Staff',
     company: 'OYO Santana Syariah Guest House',
-    period: '2023',
+    period: 'Jan 2021-May 2021',
     responsibilities: [
       'Assisted guests during check-in and check-out',
       'Handled customer inquiries professionally',
@@ -17,7 +17,7 @@ const EXPERIENCES = [
   {
     role: 'IT Division Intern',
     company: 'DPRD Kota Surakarta',
-    period: '2023',
+    period: 'Aug 2025-Sept 2025',
     responsibilities: [
       'Assisted in preparing manuals',
       'Organized administrative documents',
@@ -28,7 +28,7 @@ const EXPERIENCES = [
   {
     role: 'Head of Inventory Division',
     company: 'UKM Musik Wamsinomi FEB UMS',
-    period: '2022–2023',
+    period: 'Feb 2024–Feb 2025',
     responsibilities: [
       'Led division activities',
       'Coordinated team members',
