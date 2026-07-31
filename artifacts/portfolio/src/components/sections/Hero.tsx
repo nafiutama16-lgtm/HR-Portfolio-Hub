@@ -134,7 +134,7 @@ export default function Hero() {
               <Mail size={18} />
             </a>
             <a
-              href="https://wa.me/6288216718053?text=Hello%20Muh%20Na'afi,%20I%20found%20your%20portfolio%20website%20and%20would%20like%20to%20discuss%20a%20career%20opportunity."
+              href="https://wa.me/6288216718053"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Phone"
