@@ -5,27 +5,29 @@ import { FileSpreadsheet, Users, ClipboardCheck, Download, ArrowRight, X } from 
 
 const PROJECTS = [
   {
-    title: 'HR Recruitment Tracker',
-    description: 'Excel-based recruitment monitoring dashboard for tracking candidate pipeline efficiently.',
-    skills: ['Microsoft Excel', 'HR Analytics', 'Data Visualization'],
+    title: 'HR Recruitment Dashboard',
+    description: 'Interactive Excel dashboard analyzing 5,000 recruitment records to track candidate pipeline, department performance, and sourcing effectiveness.',
+    skills: ['Microsoft Excel', 'PivotTable & PivotChart', 'Data Visualization', 'HR Analytics'],
     icon: Users,
     color: 'from-blue-500 to-cyan-400',
-    file: '/Recruitment_Tracker.xlsx',
+    file: '/Recruitment_Dashboard.xlsx',
     detail: {
       image: '/dashboard_recruitment.png',
       summary:
-        'A recruitment monitoring dashboard built in Microsoft Excel to track the full candidate pipeline, from application to final hiring decision, across multiple departments.',
+        'An interactive Excel dashboard built to help HR teams monitor and analyze the recruitment process in real time, from incoming candidates to final status (Hired, On Hold, or Rejected). It enables data-driven decisions, such as identifying which departments need attention, which sourcing channels are most effective, and which education backgrounds are most represented among hires.',
       highlights: [
-        { label: 'Total Applicants', value: '20' },
-        { label: 'Accepted', value: '3' },
-        { label: 'In Process', value: '15' },
-        { label: 'Rejected', value: '2' },
+        { label: 'Total Candidates', value: '5,000' },
+        { label: 'Hired', value: '1,616' },
+        { label: 'On Hold', value: '1,667' },
+        { label: 'Rejected', value: '1,717' },
       ],
       points: [
-        'Tracks applicant source (LinkedIn, Jobstreet, Instagram, Glint) to identify which channels bring the most candidates.',
-        'Breaks down interest by department (Finance, HRD, Marketing) to help plan recruitment focus.',
-        'Monitors candidate status at every stage: New, Screening, HR Interview, User Interview, Accepted, Rejected.',
-        'Shows candidate load per HR PIC, making workload distribution easy to see at a glance.',
+        'KPI summary cards showing Total, Hired, On Hold, and Rejected candidates for a quick overview of the recruitment process.',
+        'Interactive slicers to filter data by Year (2022–2024) and Department (8 departments), enabling analysis per period or division.',
+        'Department chart showing applicant volume per department, with R&D having the highest number of applicants (666).',
+        'Department Status chart breaking down Rejected / On Hold / Hired per department to evaluate selection efficiency across divisions.',
+        'Education Hired chart showing the distribution of accepted candidates by education background, with hiring rates fairly even across all levels (31–34%).',
+        'Source chart comparing recruitment channel performance — LinkedIn leads as the top source (1,051 candidates), followed by Referral (1,009).',
       ],
     },
   },
