@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SectionReveal } from '@/components/ui/SectionReveal';
-import { FileSpreadsheet, Users, ClipboardCheck, Download, ArrowRight, X } from 'lucide-react';
+import { FileSpreadsheet, Users, ClipboardCheck, Download, ArrowRight, X, TrendingDown } from 'lucide-react';
 
 const PROJECTS = [
   {
@@ -32,11 +32,31 @@ const PROJECTS = [
     },
   },
   {
-    title: 'Employee Database Management',
-    description: 'Employee data management template using Microsoft Excel for secure and organized records.',
-    skills: ['Microsoft Excel', 'Database Management', 'HR Administration'],
-    icon: FileSpreadsheet,
+    title: 'HR Turnover Dashboard',
+    description: 'Interactive Excel dashboard analyzing 5,000 employee records to track attrition by department, exit reason, training score, and age group.',
+    skills: ['Microsoft Excel', 'PivotTable & PivotChart', 'Data Visualization', 'HR Analytics'],
+    icon: TrendingDown,
     color: 'from-indigo-500 to-purple-400',
+    file: '/Turnover_Dashboard.xlsx',
+    detail: {
+      image: '/dashboard_turnover.png',
+      summary:
+        'An interactive Excel dashboard built to help HR teams understand employee turnover in depth: who is leaving, from which department, for what reason, and what their profile looks like (age, training score, overtime). Linked slicers let the data be sliced by join year, overtime level, and department without touching the underlying data, making it easy to spot whether attrition is concentrated in one group or spread across the organization.',
+      highlights: [
+        { label: 'Total Employees', value: '5,000' },
+        { label: 'Total Turnover', value: '2,479' },
+        { label: 'Avg. Training Score', value: '75.04' },
+        { label: 'Turnover Rate', value: '49.6%' },
+      ],
+      points: [
+        'KPI summary cards showing Total Employees, Total Turnover, Average Training Score, and Turnover Rate for a quick health check.',
+        'Interactive slicers to filter by Join Year (2020–2023), Overtime Category (Low/Medium/High), and Department (8 departments).',
+        'Department chart showing turnover count per division, with Finance highest (356) and IT lowest (291) — a relatively even spread across the org.',
+        'Turnover Reason donut breaking exits into End of Contract, Resigned, and Terminated, each landing close to an even split (33–34%).',
+        'Training Score by Turnover Flag chart comparing Active vs Inactive employees across six competencies — the narrow gap shows training score isn\u2019t a strong predictor of who leaves.',
+        'Turnover by Age Group chart comparing Active vs Inactive across three age bands, revealing the 41–50 group is actually the largest population, not the youngest.',
+      ],
+    },
   },
   {
     title: 'Employee Onboarding Checklist',
@@ -73,12 +93,13 @@ export default function Projects() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="group bg-white rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full"
               >
-                <div className={`h-52 w-full bg-gradient-to-br ${project.color} flex items-center justify-center relative overflow-hidden`}>
+                <div className="aspect-video w-full bg-gray-50 flex items-center justify-center relative overflow-hidden p-3">
                   {project.detail?.image ? (
                     <img
                       src={project.detail.image}
                       alt={project.title}
-                      className="w-full h-full object-contain bg-white group-hover:scale-105 transition-transform duration-500"
+                      className="max-w-full max-h-full w-auto h-auto object-contain bg-white group-hover:scale-105 transition-transform duration-500 rounded-md"
+                      style={{ objectFit: 'contain' }}
                     />
                   ) : (
                     <>
@@ -170,11 +191,13 @@ export default function Projects() {
                 <X className="w-5 h-5 text-foreground" />
               </button>
 
+            <div className="w-full aspect-video bg-gray-50 flex items-center justify-center overflow-hidden p-4 rounded-t-2xl">
               <img
                 src={activeProject.detail.image}
                 alt={activeProject.title}
-                className="w-full h-64 md:h-80 object-contain bg-secondary/10"
+                className="max-w-full max-h-full object-contain rounded-lg shadow-sm"
               />
+            </div>
 
               <div className="p-6 md:p-10">
                 <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
