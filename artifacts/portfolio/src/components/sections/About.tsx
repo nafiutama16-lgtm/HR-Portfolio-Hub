@@ -228,10 +228,10 @@ export default function About() {
                           <img
                             src={tool.image}
                             alt={tool.name}
-                            className="w-8 h-8 object-contain flex-shrink-0"
+                            className="w-7 h-7 object-contain flex-shrink-0"
                           />
                         ) : (
-                          Icon && <Icon className={`text-2xl ${tool.color} flex-shrink-0`} />
+                          Icon && <Icon className={`w-8 h-8 ${tool.color} flex-shrink-0`} />
                         )}
                         <span className="font-medium text-foreground text-sm">
                           {tool.name}
