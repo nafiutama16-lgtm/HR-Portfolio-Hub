@@ -1,6 +1,6 @@
 import { SectionReveal } from "@/components/ui/SectionReveal";
 import { SiGoogledocs, SiGooglesheets } from "react-icons/si";
-import { FaFileWord, FaFileExcel, FaFilePowerpoint } from "react-icons/fa";
+import { WordIcon, ExcelIcon, PowerPointIcon, CanvaIcon, GoogleDocsIcon, GoogleSheetsIcon } from "@/components/icons/ToolIcons";
 import { motion } from "framer-motion";
 
 const SKILLS = [
@@ -15,12 +15,12 @@ const SKILLS = [
 ];
 
 const TOOLS = [
-  { name: "Microsoft Word", icon: FaFileWord, color: "text-blue-600" },
-  { name: "Microsoft Excel", icon: FaFileExcel, color: "text-green-600" },
-  { name: "PowerPoint", icon: FaFilePowerpoint, color: "text-orange-600" },
-  { name: "Google Docs", icon: SiGoogledocs, color: "text-[#4285F4]" },
-  { name: "Google Sheets", icon: SiGooglesheets, color: "text-[#0F9D58]" },
-  { name: "Canva", image: "/canva-logo.png" },
+  { name: "Microsoft Word", icon: WordIcon },
+  { name: "Microsoft Excel", icon: ExcelIcon },
+  { name: "PowerPoint", icon: PowerPointIcon },
+  { name: "Google Docs", icon: GoogleDocsIcon },
+  { name: "Google Sheets", icon: GoogleSheetsIcon },
+  { name: "Canva", icon: CanvaIcon },
 ];
 
 // Easing halus ala "ease-out-expo" biar gerakannya nggak kaku
@@ -224,15 +224,7 @@ export default function About() {
                         transition={{ duration: 0.3 }}
                         className="flex items-center gap-3 bg-white rounded-xl border border-border p-4 shadow-sm hover:shadow-lg transition-shadow duration-300"
                       >
-                        {tool.image ? (
-                          <img
-                            src={tool.image}
-                            alt={tool.name}
-                            className="w-7 h-7 object-contain flex-shrink-0"
-                          />
-                        ) : (
-                          Icon && <Icon className={`w-8 h-8 ${tool.color} flex-shrink-0`} />
-                        )}
+                        {Icon && <Icon className={`w-8 w-8 ${tool.color} flex-shrink-0`} />}
                         <span className="font-medium text-foreground text-sm">
                           {tool.name}
                         </span>
