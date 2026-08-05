@@ -79,15 +79,24 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Toggle */}
-        <button
-          className="md:hidden z-50 text-foreground"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          data-testid="button-mobile-menu"
-          aria-label="Toggle Menu"
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile Controls */}
+          <div className="md:hidden flex items-center gap-4 z-50">
+            <button
+              onClick={toggleLanguage}
+              className="px-3 py-1 rounded-full border border-border text-xs font-medium hover:bg-secondary/50 transition-colors"
+            >
+              {language === "en" ? "ID" : "EN"}
+            </button>
+
+            <button
+              className="text-foreground"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              data-testid="button-mobile-menu"
+              aria-label="Toggle Menu"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
 
         {/* Mobile Nav */}
         {isMobileMenuOpen && (

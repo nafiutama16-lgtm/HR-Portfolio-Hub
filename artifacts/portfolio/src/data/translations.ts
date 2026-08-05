@@ -65,6 +65,14 @@ export const translations = {
       toastSuccessTitle: "Message Sent Successfully!",
       toastSuccessDescription: "Thank you for reaching out. I'll get back to you soon.",
     },
+        footer: {
+      hero: "Hero",
+      about: "About",
+      experience: "Experience",
+      projects: "Projects",
+      contact: "Contact",
+      copyright: "© 2026 Muh Na'afi Utama. All Rights Reserved.",
+    },
   },
   id: {
     nav: {
@@ -131,6 +139,14 @@ export const translations = {
       toastErrorDescription: "Silakan coba lagi nanti.",
       toastSuccessTitle: "Pesan Berhasil Dikirim!",
       toastSuccessDescription: "Terima kasih sudah menghubungi. Saya akan segera membalas.",
+    },
+        footer: {
+      hero: "Beranda",
+      about: "Tentang",
+      experience: "Pengalaman",
+      projects: "Proyek",
+      contact: "Kontak",
+      copyright: "© 2026 Muh Na'afi Utama. Seluruh Hak Cipta Dilindungi.",
     },
   },
 };
