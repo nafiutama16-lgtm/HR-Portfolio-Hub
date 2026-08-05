@@ -1,19 +1,33 @@
+import { useMemo } from "react";
 import { SectionReveal } from "@/components/ui/SectionReveal";
 import { Mail, Phone, MapPin, Send, Linkedin } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "sonner";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/data/translations";
 
-const contactSchema = z.object({
-  name: z.string().min(1, "Name is required"),
-  email: z.string().email("Please enter a valid email address"),
-  message: z.string().min(1, "Message is required"),
-});
-
-type ContactFormValues = z.infer<typeof contactSchema>;
+type ContactFormValues = {
+  name: string;
+  email: string;
+  message: string;
+};
 
 export default function Contact() {
+  const { language } = useLanguage();
+  const t = translations[language].contact;
+
+  const contactSchema = useMemo(
+    () =>
+      z.object({
+        name: z.string().min(1, t.nameRequired),
+        email: z.string().email(t.emailInvalid),
+        message: z.string().min(1, t.messageRequired),
+      }),
+    [t]
+  );
+
   const {
     register,
     handleSubmit,
@@ -32,15 +46,14 @@ export default function Contact() {
 
     if (!res.ok) {
       const body = await res.json().catch(() => ({}));
-      toast.error("Failed to send message", {
-        description:
-          (body as { error?: string }).error ?? "Please try again later.",
+      toast.error(t.toastErrorTitle, {
+        description: (body as { error?: string }).error ?? t.toastErrorDescription,
       });
       return;
     }
 
-    toast.success("Message Sent Successfully!", {
-      description: "Thank you for reaching out. I'll get back to you soon.",
+    toast.success(t.toastSuccessTitle, {
+      description: t.toastSuccessDescription,
     });
     reset();
   };
@@ -50,12 +63,11 @@ export default function Contact() {
       <div className="container mx-auto px-6 md:px-12">
         <div className="mb-16 md:text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Get In Touch
+            {t.title}
           </h2>
           <div className="w-20 h-1 bg-primary md:mx-auto rounded-full" />
           <p className="mt-6 text-muted-foreground max-w-2xl mx-auto text-lg">
-            I'm currently open to new opportunities. Whether you have a question
-            or just want to say hi, feel free to drop a message!
+            {t.subtitle}
           </p>
         </div>
 
@@ -63,7 +75,7 @@ export default function Contact() {
           {/* Left - Info */}
           <div className="space-y-10">
             <h3 className="text-2xl font-semibold text-foreground mb-6">
-              Contact Information
+              {t.contactInfo}
             </h3>
 
             <div className="space-y-8">
@@ -88,7 +100,7 @@ export default function Contact() {
                 <div className="w-14 h-14 rounded-full bg-white shadow-sm flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Phone className="w-6 h-6 text-primary" />
                 </div>
-                <span className="text-lg font-medium">WhatsApp</span>
+                <span className="text-lg font-medium">{t.whatsapp}</span>
               </a>
 
               <a
@@ -100,7 +112,7 @@ export default function Contact() {
                 <div className="w-14 h-14 rounded-full bg-white shadow-sm flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Linkedin className="w-6 h-6 text-primary" />
                 </div>
-                <span className="text-lg font-medium">LinkedIn</span>
+                <span className="text-lg font-medium">{t.linkedin}</span>
               </a>
 
               <div className="flex items-center gap-5 text-muted-foreground group">
@@ -115,7 +127,7 @@ export default function Contact() {
 
             <div className="pt-6">
               <h4 className="text-sm font-bold text-foreground uppercase tracking-widest mb-6">
-                Follow Me
+                {t.followMe}
               </h4>
               <div className="flex gap-4">
                 <a
@@ -152,7 +164,7 @@ export default function Contact() {
             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary to-accent" />
 
             <h3 className="text-2xl font-semibold text-foreground mb-8">
-              Send a Message
+              {t.sendMessage}
             </h3>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -161,14 +173,14 @@ export default function Contact() {
                   htmlFor="name"
                   className="block text-sm font-semibold text-foreground mb-2"
                 >
-                  Full Name
+                  {t.fullName}
                 </label>
                 <input
                   {...register("name")}
                   type="text"
                   id="name"
                   className={`w-full px-5 py-4 rounded-xl border ${errors.name ? "border-red-500 focus:ring-red-500" : "border-input focus:ring-primary focus:border-primary"} bg-secondary/10 outline-none transition-all`}
-                  placeholder="John Doe"
+                  placeholder={t.namePlaceholder}
                   data-testid="input-name"
                 />
                 {errors.name && (
@@ -183,14 +195,14 @@ export default function Contact() {
                   htmlFor="email"
                   className="block text-sm font-semibold text-foreground mb-2"
                 >
-                  Email Address
+                  {t.emailAddress}
                 </label>
                 <input
                   {...register("email")}
                   type="email"
                   id="email"
                   className={`w-full px-5 py-4 rounded-xl border ${errors.email ? "border-red-500 focus:ring-red-500" : "border-input focus:ring-primary focus:border-primary"} bg-secondary/10 outline-none transition-all`}
-                  placeholder="john@example.com"
+                  placeholder={t.emailPlaceholder}
                   data-testid="input-email"
                 />
                 {errors.email && (
@@ -205,14 +217,14 @@ export default function Contact() {
                   htmlFor="message"
                   className="block text-sm font-semibold text-foreground mb-2"
                 >
-                  Your Message
+                  {t.yourMessage}
                 </label>
                 <textarea
                   {...register("message")}
                   id="message"
                   rows={4}
                   className={`w-full px-5 py-4 rounded-xl border ${errors.message ? "border-red-500 focus:ring-red-500" : "border-input focus:ring-primary focus:border-primary"} bg-secondary/10 outline-none transition-all resize-none`}
-                  placeholder="How can we help you?"
+                  placeholder={t.messagePlaceholder}
                   data-testid="input-message"
                 />
                 {errors.message && (
@@ -233,7 +245,7 @@ export default function Contact() {
                 ) : (
                   <>
                     <Send className="w-5 h-5" />
-                    Send Message
+                    {t.submitButton}
                   </>
                 )}
               </button>

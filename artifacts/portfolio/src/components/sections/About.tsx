@@ -1,17 +1,18 @@
 import { SectionReveal } from "@/components/ui/SectionReveal";
-import { SiGoogledocs, SiGooglesheets } from "react-icons/si";
 import { WordIcon, ExcelIcon, PowerPointIcon, CanvaIcon, GoogleDocsIcon, GoogleSheetsIcon } from "@/components/icons/ToolIcons";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/data/translations";
 
 const SKILLS = [
-  "Communication",
-  "Teamwork & Collaboration",
-  "Leadership",
-  "Time Management",
-  "Problem Solving",
-  "Critical Thinking",
-  "Adaptability",
-  "HR Administration",
+  { en: "Communication", id: "Komunikasi" },
+  { en: "Teamwork & Collaboration", id: "Kerja Sama Tim" },
+  { en: "Leadership", id: "Kepemimpinan" },
+  { en: "Time Management", id: "Manajemen Waktu" },
+  { en: "Problem Solving", id: "Pemecahan Masalah" },
+  { en: "Critical Thinking", id: "Berpikir Kritis" },
+  { en: "Adaptability", id: "Adaptabilitas" },
+  { en: "HR Administration", id: "Administrasi HR" },
 ];
 
 const TOOLS = [
@@ -75,6 +76,9 @@ const staggerItem = {
 };
 
 export default function About() {
+  const { language } = useLanguage();
+  const t = translations[language].about;
+
   return (
     <SectionReveal id="about" className="py-24 bg-white relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
@@ -86,7 +90,7 @@ export default function About() {
           variants={fadeUp}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            About Me
+            {t.title}
           </h2>
           <motion.div
             className="w-20 h-1 bg-primary md:mx-auto rounded-full"
@@ -108,19 +112,16 @@ export default function About() {
           >
             <motion.div variants={fadeLeft}>
               <h3 className="text-2xl font-semibold text-foreground mb-4">
-                Biography
+                {t.biography}
               </h3>
               <p className="text-muted-foreground leading-relaxed text-lg">
-                I am a fresh graduate in Management from Universitas
-                Muhammadiyah Surakarta, with a strong passion for Human
-                Resources. I am eager to grow in areas such as recruitment,
-                employee development, and HR administration.
+                {t.bioText}
               </p>
             </motion.div>
 
             <motion.div variants={fadeLeft}>
               <h3 className="text-2xl font-semibold text-foreground mb-4">
-                Education
+                {t.education}
               </h3>
 
               <motion.div
@@ -139,7 +140,7 @@ export default function About() {
                       Universitas Muhammadiyah Surakarta
                     </h4>
                     <p className="text-primary font-medium">
-                      Bachelor of Management
+                      {t.degree}
                     </p>
                     <p className="text-muted-foreground">
                       GPA{" "}
@@ -155,12 +156,10 @@ export default function About() {
 
             <motion.div variants={fadeLeft}>
               <h3 className="text-2xl font-semibold text-foreground mb-4">
-                Career Objective
+                {t.careerObjective}
               </h3>
               <blockquote className="text-foreground leading-relaxed text-lg border-l-4 border-primary pl-5 py-2 italic bg-secondary/50 rounded-r-xl font-medium">
-                Seeking an entry-level HR position where I can apply my
-                organizational skills, attention to detail, and people-first
-                mindset to help build strong workplace cultures.
+                {t.objectiveText}
               </blockquote>
             </motion.div>
           </motion.div>
@@ -174,13 +173,13 @@ export default function About() {
             variants={fadeRight}
           >
             <h3 className="text-2xl font-semibold text-foreground mb-8">
-              Skills & Tools
+              {t.skillsTools}
             </h3>
 
             <div className="space-y-8">
               <div>
                 <h4 className="text-lg font-semibold text-primary mb-4">
-                  Core Skills
+                  {t.coreSkills}
                 </h4>
                 <motion.div
                   className="flex flex-wrap gap-3"
@@ -191,12 +190,12 @@ export default function About() {
                 >
                   {SKILLS.map((skill) => (
                     <motion.span
-                      key={skill}
+                      key={skill.en}
                       variants={staggerItem}
                       whileHover={{ scale: 1.05, y: -2 }}
                       className="px-4 py-2 bg-white rounded-full border border-border shadow-sm text-sm font-medium cursor-default"
                     >
-                      {skill}
+                      {skill[language]}
                     </motion.span>
                   ))}
                 </motion.div>
@@ -204,10 +203,10 @@ export default function About() {
 
               <div>
                 <h4 className="text-lg font-semibold text-primary mb-4">
-                  Tools
+                  {t.tools}
                 </h4>
                 <motion.div
-                  className="grid grid-cols-2 gap-4"
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-4"
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.3 }}
@@ -224,7 +223,17 @@ export default function About() {
                         transition={{ duration: 0.3 }}
                         className="flex items-center gap-3 bg-white rounded-xl border border-border p-4 shadow-sm hover:shadow-lg transition-shadow duration-300"
                       >
-                        {Icon && <Icon className={`w-8 w-8 ${tool.color} flex-shrink-0`} />}
+                        <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
+                          {Icon && (
+                            <Icon
+                              className={
+                                tool.name === "Microsoft Word" || tool.name === "Canva"
+                                  ? "w-[80%] h-[80%]"
+                                  : "w-full h-full"
+                              }
+                            />
+                          )}
+                        </div>
                         <span className="font-medium text-foreground text-sm">
                           {tool.name}
                         </span>

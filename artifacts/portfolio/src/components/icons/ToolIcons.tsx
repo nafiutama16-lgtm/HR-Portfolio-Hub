@@ -1,6 +1,6 @@
 export function WordIcon({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <svg viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
       <rect x="8" y="2" width="24" height="28" rx="2" fill="url(#word_paint0)" />
       <path d="M8 23H32V28C32 29.1046 31.1046 30 30 30H10C8.89543 30 8 29.1046 8 28V23Z" fill="url(#word_paint1)" />
       <rect x="8" y="16" width="24" height="7" fill="url(#word_paint2)" />
@@ -154,7 +154,7 @@ export function GoogleSheetsIcon({ className }: { className?: string }) {
 
 export function CanvaIcon({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 508 508" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <svg viewBox="0 0 525 525" xmlns="http://www.w3.org/2000/svg" className={className}>
       <g transform="matrix(.26718 0 0 .26718 0 0)">
         <circle cx="950" cy="950" r="950" fill="#7d2ae7" />
         <circle cx="950" cy="950" r="950" fill="url(#canva_radial1)" />

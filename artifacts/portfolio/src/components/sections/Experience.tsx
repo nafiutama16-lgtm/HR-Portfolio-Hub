@@ -1,49 +1,69 @@
 import { motion } from 'framer-motion';
 import { SectionReveal } from '@/components/ui/SectionReveal';
 import { Briefcase } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
+import { translations } from '@/data/translations';
 
 const EXPERIENCES = [
   {
-    role: 'Front Office Staff',
+    role: { en: 'Front Office Staff', id: 'Staf Front Office' },
     company: 'OYO Santana Syariah Guest House',
     period: 'Jan 2021-May 2021',
     responsibilities: [
-      'Assisted guests during check-in and check-out',
-      'Handled customer inquiries professionally',
-      'Managed daily administrative records',
-      'Coordinated facility reports'
-    ]
+      {
+        en: 'Assisted guests during check-in and check-out',
+        id: 'Membantu tamu selama proses check-in dan check-out',
+      },
+      {
+        en: 'Handled customer inquiries professionally',
+        id: 'Menangani pertanyaan tamu secara profesional',
+      },
+      {
+        en: 'Managed daily administrative records',
+        id: 'Mengelola catatan administrasi harian',
+      },
+      {
+        en: 'Coordinated facility reports',
+        id: 'Mengoordinasikan laporan fasilitas',
+      },
+    ],
   },
   {
-    role: 'IT Division Intern',
+    role: { en: 'IT Division Intern', id: 'Magang Divisi IT' },
     company: 'DPRD Kota Surakarta',
     period: 'Aug 2025-Sept 2025',
     responsibilities: [
-      'Assisted in preparing manuals',
-      'Organized administrative documents',
-      'Revised official documents',
-      'Maintained document accuracy'
-    ]
+      { en: 'Assisted in preparing manuals', id: 'Membantu penyusunan manual/panduan' },
+      {
+        en: 'Organized administrative documents',
+        id: 'Mengorganisir dokumen administrasi',
+      },
+      { en: 'Revised official documents', id: 'Merevisi dokumen resmi' },
+      { en: 'Maintained document accuracy', id: 'Menjaga akurasi dokumen' },
+    ],
   },
   {
-    role: 'Head of Inventory Division',
+    role: { en: 'Head of Inventory Division', id: 'Kepala Divisi Inventaris' },
     company: 'UKM Musik Wamsinomi FEB UMS',
     period: 'Feb 2024–Feb 2025',
     responsibilities: [
-      'Led division activities',
-      'Coordinated team members',
-      'Managed work programs',
-      'Evaluated organizational performance'
-    ]
-  }
+      { en: 'Led division activities', id: 'Memimpin kegiatan divisi' },
+      { en: 'Coordinated team members', id: 'Mengoordinasikan anggota tim' },
+      { en: 'Managed work programs', id: 'Mengelola program kerja' },
+      { en: 'Evaluated organizational performance', id: 'Mengevaluasi kinerja organisasi' },
+    ],
+  },
 ];
 
 export default function Experience() {
+  const { language } = useLanguage();
+  const t = translations[language].experience;
+
   return (
     <SectionReveal id="experience" className="py-24 bg-secondary">
       <div className="container mx-auto px-6 md:px-12">
         <div className="mb-16 md:text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Experience</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t.title}</h2>
           <div className="w-20 h-1 bg-primary md:mx-auto rounded-full" />
         </div>
 
@@ -77,13 +97,13 @@ export default function Experience() {
                     <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-semibold rounded-full mb-4">
                       {exp.period}
                     </span>
-                    <h3 className="text-xl font-bold text-foreground mb-1">{exp.role}</h3>
+                    <h3 className="text-xl font-bold text-foreground mb-1">{exp.role[language]}</h3>
                     <h4 className="text-primary font-medium mb-5">{exp.company}</h4>
                     <ul className="space-y-3">
                       {exp.responsibilities.map((resp, i) => (
                         <li key={i} className="flex gap-3 text-muted-foreground items-start text-left">
                           <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                          <span className="text-sm md:text-base leading-relaxed">{resp}</span>
+                          <span className="text-sm md:text-base leading-relaxed">{resp[language]}</span>
                         </li>
                       ))}
                     </ul>

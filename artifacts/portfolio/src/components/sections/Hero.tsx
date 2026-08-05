@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Download, FolderOpen, Linkedin, Mail, Phone } from "lucide-react";
 import profilePhoto from "@assets/WhatsApp_Image_2026-06-25_at_7.01.45_PM_1785212685856.jpeg";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/data/translations";
 
 // CV is stored at /assets/cv.pdf — replace the file there to update the CV without touching code.
 const CV_PATH = `${import.meta.env.BASE_URL}assets/cv.pdf`
@@ -8,6 +10,9 @@ const CV_PATH = `${import.meta.env.BASE_URL}assets/cv.pdf`
   .replace(":/", "://");
 
 export default function Hero() {
+  const { language } = useLanguage();
+  const t = translations[language].hero;
+
   return (
     <section
       id="home"
@@ -65,7 +70,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-xl md:text-2xl text-primary font-medium mb-5"
           >
-            Human Resources Enthusiast | Fresh Graduate
+            {t.subtitle}
           </motion.h2>
 
           {/* Description */}
@@ -75,11 +80,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-2xl"
           >
-            Fresh Graduate in Management with a strong interest in Human
-            Resources, recruitment, HR administration, and employee development.
-            Committed to supporting organizational growth through effective HR
-            administration, organized processes, and people-centered workplace
-            practices.
+            {t.description}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -96,7 +97,7 @@ export default function Hero() {
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white rounded-full font-medium transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-primary/30 active:scale-95"
             >
               <Download size={20} />
-              Download CV
+              {t.downloadCV}
             </a>
             <a
               href="#projects"
@@ -104,7 +105,7 @@ export default function Hero() {
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/60 backdrop-blur-sm text-primary border-2 border-primary/20 rounded-full font-medium transition-all duration-200 hover:border-primary hover:bg-primary/5 hover:scale-105 active:scale-95"
             >
               <FolderOpen size={20} />
-              View Projects
+              {t.viewProjects}
             </a>
           </motion.div>
 

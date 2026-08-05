@@ -1,19 +1,22 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-
-const NAV_LINKS = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Contact', href: '#contact' },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const { language, toggleLanguage, t } = useLanguage();
+
+  const NAV_LINKS = [
+  { label: t.nav.home, href: "#home" },
+  { label: t.nav.about, href: "#about" },
+  { label: t.nav.experience, href: "#experience" },
+  { label: t.nav.projects, href: "#projects" },
+  { label: t.nav.contact, href: "#contact" },
+];
+  
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -67,6 +70,13 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
+
+          <button
+            onClick={toggleLanguage}
+            className="px-3 py-1.5 rounded-full border border-border text-sm font-medium hover:bg-secondary/50 transition-colors"
+          >
+            {language === "en" ? "🇬🇧 EN" : "🇮🇩 ID"}
+          </button>
         </div>
 
         {/* Mobile Toggle */}
