@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SectionReveal } from '@/components/ui/SectionReveal';
-import { FileSpreadsheet, Users, ClipboardCheck, Download, ArrowRight, X, TrendingDown } from 'lucide-react';
+import { Users, Download, ArrowRight, X, TrendingDown } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/data/translations';
 
@@ -106,16 +106,6 @@ const PROJECTS = [
       ],
     },
   },
-  {
-    title: { en: 'Employee Onboarding Checklist', id: 'Checklist Onboarding Karyawan' },
-    description: {
-      en: 'A complete onboarding checklist ensuring a smooth transition for new employees.',
-      id: 'Checklist onboarding lengkap untuk memastikan transisi yang lancar bagi karyawan baru.',
-    },
-    skills: ['HR Administration', 'Process Design', 'Documentation'],
-    icon: ClipboardCheck,
-    color: 'from-blue-400 to-emerald-400',
-  },
 ];
 
 export default function Projects() {
@@ -134,7 +124,7 @@ export default function Projects() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {PROJECTS.map((project, idx) => {
             const Icon = project.icon;
             return (
